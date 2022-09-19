@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, View, Text, Image, TouchableOpacity, Alert } from 'react-native';
-//import Page1 from "./Page1";
-//import Menu from "../component/Menu";
-import Home from "./Home";
-//import { useNavigation } from '@react-navigation/native';
+import Screen1 from "./Screen1";
 
+export default class SplashScreen extends Component {
 
-class Splash extends Component {
-    //const navigation = useNavigation();  
     constructor() {
         super();
         this.state = {
@@ -33,25 +29,19 @@ class Splash extends Component {
         let Splash_Screen = (
             <View style={styles.SplashScreen_RootView}>
                 <View style={styles.SplashScreen_ChildView}>
-                    <Text style={{ fontSize: 30, marginBottom: '10%', fontWeight: 'bold', color: '#fff', }}>EDUCATION APP</Text>
-                    <Image source={require('../assets/books.jpg')}
+                    <Text style={{ fontSize: 30, marginBottom: '10%', fontWeight: 'bold', color: '#fff', }}>SIMPLEAPP</Text>
+                    {/* <Image source={require('../../LoginApp/imagescopy.jpg')}
                         style={{
                             alignSelf: 'center',
-                            height: undefined,
-                            width: '80%',
-                            aspectRatio: 1,
-                            display: 'flex',
-                            borderRadius: 15
+                            //marginEnd: 60,
                         }}
-                    />
+                    /> */}
                 </View>
             </View>
         )
         return (
             <View style={styles.MainContainer}>
-                {/* <Page1 /> */}
-                {/* <Menu /> */}
-                <Home />
+                <Screen1 />
                 {
                     (this.state.isVisible === true) ? Splash_Screen : null
                 }
@@ -59,8 +49,6 @@ class Splash extends Component {
         );
     }
 }
-
-export default Splash;
 
 const styles = StyleSheet.create({
     MainContainer: {
@@ -81,7 +69,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         //backgroundColor: '#00bcd4',
-        backgroundColor: '#000',
+        backgroundColor: 'pink',
         flex: 1,
         marginVertical: '-10%',
     },
