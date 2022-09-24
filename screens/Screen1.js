@@ -1,253 +1,300 @@
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView, Alert, PermissionsAndroid } from 'react-native';
-import React, { useState, useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import ImagePicker from 'react-native-image-crop-picker';
-import { Dropdown } from 'react-native-element-dropdown';
+import * as React from 'react';
+import { View, Image, StyleSheet, Text, TextInput, TouchableOpacity, SafeAreaView, StatusBar, Modal, } from 'react-native';
+import { useState } from 'react';
+import Hide from '../components/others/Hide';
 
-const genderdata = [
-  { label: 'Others', value: 'Others' },
-  { label: 'Woman', value: 'Woman' },
-  { label: 'Man', value: 'Man' },
-];
 
-const Screen1 = () => {
-  const navigation = useNavigation();
-  const [value, setValue] = useState(null);
-  const [filePath, setFilePath] = useState({});
-  const requestCameraPermission = async () => {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.CAMERA,
-        {
-          title: 'Camera Permission',
-          message: 'SimpleApp needs access to your camera ',
+const Screen1 = ({ navigation }) => {
 
-          buttonNeutral: 'Ask Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+  const [showModal, setShowModal] = useState(false);
+  const Separator = () => (
+    <View style={styles.separator} />
+  );
 
-      } else {
-
-      }
-    } catch (err) {
-
-    }
-  };
-
-  const requestExternalWritePermission = async () => {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-        {
-          title: 'External Storage Write Permission',
-          message: 'App needs write permission',
-        },
-      );
-      return granted === PermissionsAndroid.RESULTS.GRANTED;
-    } catch (err) {
-      console.log(err);
-      alert('Write permission error', err);
-    }
-    return false;
-  };
-
-  const takePhotoFromCamera = () => {
-    ImagePicker.openCamera({
-      width: 700,
-      height: 700,
-      compressImageQuality: 0.7,
-      compressImageMaxWidth: 700,
-      compressImageMaxHeight: 700,
-      includeBase64: true,
-    }).catch(error => { });
-  };
-  const choosePhotoFromLibrary = () => {
-    ImagePicker.openPicker({
-      width: 700,
-      height: 700,
-
-      includeBase64: true,
-      compressImageQuality: 0.5,
-    });
-  };
-  const createTwoButtonAlert = () =>
-    Alert.alert(
-      '',
-      'ADD PICTURE',
-
-      [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        {
-          text: 'Camera',
-          onPress: () => takePhotoFromCamera(),
-        },
-        {
-          text: 'Choose from Gallery',
-          onPress: () => choosePhotoFromLibrary(),
-        },
-      ],
-      { cancelable: false },
-    );
   return (
-
-    <View style={styles.vw}>
+    <>
       <View>
-        <Text style={styles.txt1}>Create Account</Text>
-        <Text style={styles.txt2}>Enter your information below </Text>
+        <StatusBar style={styles.sb} />
       </View>
+      <SafeAreaView>
+        <View style={styles.container}>
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Image style={styles.direct2} source={require('../components/images/orizonbig.png')} />
+          <Separator />
 
-      <TouchableOpacity style={{
-        alignSelf: 'flex-start', height: 80, width: 80, backgroundColor: "white",
-        display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 10,
-        borderWidth: 0.5, borderColor: 'grey', top: 10, marginHorizontal: 30
-      }} onPress={() => createTwoButtonAlert()}>
-        <Image source={require('../assets/add.png')} style={{ height: 20, width: 20 }} />
-        <Text style={{ fontSize: 10, fontWeight: 'bold', color: '#000000' }} >Add photos</Text>
-      </TouchableOpacity>
-      <View style={{
-        alignSelf: 'flex-start', height: 60, width: 300, backgroundColor: "white",
-        display: 'flex', justifyContent: 'center', alignItems: 'flex-start', borderRadius: 10, borderWidth: 0.5, borderColor: 'grey',
-        position: 'relative', top: 20, marginHorizontal: 30
-      }}>
-        <Image source={require('../assets/user.png')} style={{ height: 20, width: 20, position: 'absolute', marginLeft: 10 }} />
-        <Text style={{ fontSize: 15, fontWeight: 'bold', position: 'absolute', marginLeft: 40, top: 10, color: '#000000' }}>First Name</Text>
-        <TextInput placeholder='Enter first name' placeholderTextColor='#808080' style={{ position: 'absolute', marginLeft: 35, top: 15 }} />
-      </View>
+          <Text style={styles.txt5}>All motorcycle services on your</Text>
+          <Text style={styles.txt6}>fingertips.</Text>
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
 
-      <View style={{
-        alignSelf: 'flex-start', height: 60, width: 300, backgroundColor: "white",
-        display: 'flex', justifyContent: 'center', alignItems: 'flex-start', borderRadius: 10, borderWidth: 0.5, borderColor: 'grey',
-        position: 'relative', top: 30, marginHorizontal: 30
-      }}>
-        <Image source={require('../assets/user.png')} style={{ height: 20, width: 20, position: 'absolute', marginLeft: 10 }} />
-        <Text style={{ fontSize: 15, fontWeight: 'bold', position: 'absolute', marginLeft: 40, top: 10, color: '#000000' }}>Last Name</Text>
-        <TextInput placeholder='Enter last name' placeholderTextColor='#808080' style={{ position: 'absolute', marginLeft: 35, top: 15 }} />
-      </View>
+          <View style={styles.fixToText}>
+            <TouchableOpacity style={styles.btn1}
+              onPress={() => { setShowModal(!showModal); }} >
+              <Text style={styles.appButtonText}>Log In</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.btn2}
+              onPress={() => navigation.navigate('Screen3')} >
+              <Text style={styles.appButtonText}>Sign Up</Text>
+            </TouchableOpacity>
+          </View>
 
-      <View style={{
-        alignSelf: 'flex-start', height: 60, width: 300, backgroundColor: "white",
-        display: 'flex', justifyContent: 'center', alignItems: 'flex-start', borderRadius: 10, borderWidth: 0.5, borderColor: 'grey',
-        position: 'relative', top: 40, marginHorizontal: 30
-      }}>
-        <Image source={require('../assets/mail.png')} style={{ height: 20, width: 20, position: 'absolute', marginLeft: 10 }} />
-        <Text style={{ fontSize: 15, fontWeight: 'bold', position: 'absolute', marginLeft: 40, top: 10, color: '#000000' }}>Email address</Text>
-        <TextInput placeholder='Enter email address' placeholderTextColor='#808080' style={{ position: 'absolute', marginLeft: 35, top: 15 }} />
-      </View>
+          {/*=====================Login========================*/}
 
-      <View style={{
-        alignSelf: 'flex-start', height: 60, width: 300, backgroundColor: "white",
-        display: 'flex', justifyContent: 'center', alignItems: 'flex-start', borderRadius: 10, borderWidth: 0.5, borderColor: 'grey',
-        position: 'relative', top: 50, marginHorizontal: 30
-      }}>
-        <Image source={require('../assets/user.png')} style={{ height: 20, width: 20, position: 'absolute', marginLeft: 10 }} />
-        <Text style={{ fontSize: 15, fontWeight: 'bold', position: 'absolute', marginLeft: 40, top: 10, color: '#000000' }}>Username</Text>
-        <TextInput placeholder='Enter username' placeholderTextColor='#808080' style={{ position: 'absolute', marginLeft: 35, top: 15 }} />
-      </View>
+          <SafeAreaView style={styles.safearea}>
+            <View style={styles.container2}>
+              <Modal animationType={'slide'} transparent={true} visible={showModal}
+                onRequestClose={() => { console.log('Modal has been closed.'); }}>
+                <SafeAreaView>
+                  <View>
+                    <View style={styles.bg} >
+                      <Image style={styles.direct} source={require('../components/images/orizonsmall.png')} />
+                      <Separator />
+                    </View>
+                    <SafeAreaView style={styles.bg}>
+                      <View style={styles.boundary}>
+                        <Separator />
 
-      <View style={{
-        alignSelf: 'flex-start', height: 60, width: 300, backgroundColor: "white",
-        display: 'flex', justifyContent: 'center', alignItems: 'flex-start', borderRadius: 10, borderWidth: 0.5, borderColor: 'grey',
-        position: 'relative', top: 60, marginHorizontal: 30
-      }}>
-        <Image source={require('../assets/user.png')} style={{ height: 20, width: 20, position: 'absolute', marginLeft: 10 }} />
+                        <Text style={styles.txt1} >Log In</Text>
+                        <Separator />
+                        <Separator />
+                        <Separator />
+                        <Text style={styles.txt2}>Vehicle Registration Number</Text>
+                        <View style={styles.innerview}>
+                          <TextInput placeholder='enter VRN' style={styles.txtin} /></View>
+                        <Text style={styles.txt2} >Mobile Number</Text>
+                        <View style={styles.innerview}>
+                          <Hide />
+                        </View>
+                        <View style={styles.fixToText}>
+                          <TouchableOpacity style={styles.appButtonContainer2} onPress={() => navigation.navigate('Screen4')} >
+                            <Text style={styles.appButtonText2}>Log In</Text>
+                          </TouchableOpacity>
+                          <Text style={styles.txt3} onPress={() => { setShowModal(!showModal); }}>Forgot password?</Text>
+                          <Separator />
+                          <Text style={styles.txt4} onPress={() => navigation.navigate('Screen3')}>Sign Up</Text>
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                          <Separator />
+                        </View>
+                      </View>
+                    </SafeAreaView>
+                  </View>
+                </SafeAreaView>
+              </Modal>
+            </View>
+          </SafeAreaView>
 
-        <Dropdown
-          itemTextStyle={{
-            fontSize: 15,
-            color: '#000000',
-            fontWeight: 'bold',
-            height: 18,
-            lineHeight: 21,
-            letterSpacing: -0.017,
-            left: '-35%'
-          }}
-          style={{
-            width: 250,
-            borderBottomColor: '#fff',
-            borderBottomWidth: 1,
-            color: '#000000',
-            height: 30,
-            backgroundColor: 'transparent',
-            marginLeft: '10%'
-          }}
-          placeholder="  Gender"
-          placeholderStyle={{
-            fontSize: 15,
-            textAlign: 'left',
-            fontWeight: 'bold',
-            height: 18,
-            lineHeight: 21,
-            letterSpacing: -0.017,
-            bottom: '1%',
-            paddingLeft: '1%',
-            color: '#000000'
-          }}
-          selectedTextStyle={{
-            fontSize: 15,
-            textAlign: 'left',
-            fontWeight: 'bold',
-            lineHeight: 21,
-            letterSpacing: -0.017,
-            paddingLeft: '4%',
-            color: '#000000'
-          }}
-          data={genderdata}
-          iconColor='transparent'
-          labelField="label"
-          valueField="value"
-          value={value}
-          onChange={item => {
-            setValue(item.value);
-          }}
+          {/*=====================Signup========================*/}
 
-        />
 
-      </View>
-
-      <View style={{
-        alignSelf: 'flex-start', height: 60, width: 300, backgroundColor: "white",
-        display: 'flex', justifyContent: 'center', alignItems: 'flex-start', borderRadius: 10, borderWidth: 0.5, borderColor: 'grey',
-        position: 'relative', top: 70, marginHorizontal: 30, marginTop: '0%'
-      }}>
-        <Image source={require('../assets/lock.png')} style={{ height: 20, width: 15, position: 'absolute', marginLeft: 10 }} />
-        <Text style={{ fontSize: 15, fontWeight: 'bold', position: 'absolute', marginLeft: 40, top: 10, color: '#000000' }}>Password</Text>
-        <TextInput placeholder='Enter password' placeholderTextColor='#808080' style={{ position: 'absolute', marginLeft: 35, top: 15 }} secureTextEntry />
-      </View>
-
-      <TouchableOpacity style={{
-        height: 50, width: 300, backgroundColor: 'pink',
-        alignSelf: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center',
-        borderRadius: 10, top: 90
-      }} onPress={() => navigation.navigate('Screen2')}>
-        <Text style={{ fontSize: 15, color: '#fff', fontWeight: 'bold' }}>Next</Text>
-      </TouchableOpacity>
-    </View>
-
+        </View>
+        <View style={styles.container}>
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+          <Separator />
+        </View>
+      </SafeAreaView>
+    </>
   );
 };
 
-export default Screen1;
-
 const styles = StyleSheet.create({
-  vw: {
-    flex: 1,
-    //height: 100
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  direct2: {
+    alignSelf: 'center',
+    marginVertical: 80
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: 'transparent',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  container: {
+    backgroundColor: '#000000',
+  },
+  appButtonText: {
+    fontSize: 18,
+    color: "white",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "capitalize",
+    margin: 15,
+    marginHorizontal: 20,
+  },
+  sb: {
+    backgroundColor: "#000"
+  },
+  txt5: {
+    alignSelf: 'center',
+    color: 'white',
+    bottom: 80,
+
+  },
+  txt6: {
+    alignSelf: 'center',
+    color: 'white',
+    bottom: 80,
+  },
+  btn1: {
+    elevation: 8,
+    backgroundColor: "#f2994a",
+    borderRadius: 15,
+    paddingVertical: -3,
+    paddingHorizontal: 12,
+    margin: 25,
+    width: 140,
+    height: 60
+  },
+  btn2: {
+    elevation: 8,
+    backgroundColor: "#808080",
+    borderRadius: 15,
+    paddingVertical: -3,
+    paddingHorizontal: 12,
+    margin: 25,
+    width: 140,
+    top: -110,
+    left: 170,
+    height: 60
+  },
+
+  //Login
+
+  container2: {
+    flex: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ec4344',
+    marginTop: 120,
+    width: 50,
+    height: 100,
+
+  },
+  modal: {
+    flex: 0,
+    alignItems: 'center',
+    backgroundColor: '00ff00',
+    padding: 100,
+    marginTop: 50,
+    margin: 0
+  },
+  safearea: {
+    flex: 0
+  },
+
+  fixToText: {
+    justifyContent: 'center',
+    alignSelf: 'stretch'
+  },
+  direct: {
+    alignSelf: 'flex-start',
+    marginStart: 10,
+    alignSelf: 'center'
+  },
+
+  appButtonText2: {
+    fontSize: 18,
+    color: "white",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: 'capitalize'
+  },
+  appButtonContainer2: {
+    elevation: 8,
+    backgroundColor: "#f2994a",
+    borderRadius: 15,
+    paddingVertical: 15,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+    margin: 20,
+    marginHorizontal: 25
+  },
+  boundary: {
+    borderWidth: 1,
+    borderColor: '#000',
+    backgroundColor: '#ffffff',
+    borderRadius: 45,
+  },
+  bg: {
+    backgroundColor: '#000000'
   },
   txt1: {
+    alignSelf: 'flex-start',
+    color: 'black',
+    textTransform: 'capitalize',
     fontWeight: 'bold',
-    fontSize: 25,
-    marginHorizontal: 30,
-    color: '#000000'
+    fontSize: 30,
+    top: 30,
+    marginStart: 25
   },
   txt2: {
-    marginHorizontal: 30,
-    color: '#000000'
+    alignSelf: 'flex-start',
+    color: '#808080',
+    marginLeft: 32
   },
+  txt3: {
+    alignSelf: 'center',
+    color: '#808080'
+  },
+  txt4: {
+    alignSelf: 'center',
+    color: '#007aff'
+  },
+  innerview: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1.5,
+    height: 40,
+    borderRadius: 10,
+    margin: 5,
+    marginVertical: 10,
+    marginHorizontal: 25
+  },
+  txtin: {
+    marginHorizontal: 10
+  },
+
+  //Signup
+
+
+
 });
+
+export default Screen1;

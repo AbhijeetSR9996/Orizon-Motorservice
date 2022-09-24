@@ -2,14 +2,11 @@
   package="com.loginapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
-      android:icon="@mipmap/user"
+      android:icon="@mipmap/orizonsmall"
         android:allowBackup="false"
       android:theme="@style/AppTheme">
       <activity
