@@ -138,7 +138,8 @@ const styles = StyleSheet.create({
   txt2: {
     alignSelf: 'center',
     color: '#808080',
-    left: -20
+    left: -10,
+    //top: 65
   }
 });
 

@@ -18,7 +18,7 @@ const Signup = () => {
   const [showModal, setShowModal] = useState(true);
   return (
     <SafeAreaView >
-      <ScrollView >
+      <ScrollView showsVerticalScrollIndicator={false}>
         <SafeAreaView style={{ marginTop: 97 }}>
           <View>
             <SafeAreaView style={styles.bg}>

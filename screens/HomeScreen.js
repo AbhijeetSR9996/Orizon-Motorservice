@@ -17,7 +17,7 @@ const HomeScreen = () => {
   return (
     <>
       <SafeAreaView style={styles.safearea} >
-        <ScrollView style={styles.bg1} >
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.bg1} >
           <View>
             <View style={styles.bg1} >
               <Image style={styles.direct} source={require('../components/images/orizonsmall.png')} />

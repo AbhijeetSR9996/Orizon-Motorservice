@@ -92,7 +92,7 @@ const imageUploaderStyles = StyleSheet.create({
         position: 'relative',
         overflow: 'hidden',
         top: -460,
-        left: 241
+        left: 246
     },
     uploadBtnContainer: {
         opacity: 0.7,

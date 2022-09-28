@@ -109,11 +109,6 @@ const Screen9 = (props) => {
                   <Text style={styles.txtsmall3}>11:30</Text>
                 </View>
 
-                {/* <Text style={styles.txtsmall1}>10:00</Text>
-                <Text style={styles.txtsmall2}>10:45</Text>
-                <Text style={styles.txtsmall3}>11:30</Text> */}
-
-
                 <Text style={styles.txtbig2}>Afternoon</Text>
                 <View style={styles.view4} >
                   <Text style={styles.txtsmall4}>01:00</Text>
@@ -128,10 +123,6 @@ const Screen9 = (props) => {
                   <Text style={styles.txtsmall7}>03:15</Text>
                 </View>
 
-
-
-
-
                 <View style={styles.view8}>
                   <Text style={styles.txtsmall8}>04:00</Text>
                 </View>
@@ -144,10 +135,6 @@ const Screen9 = (props) => {
                 <View style={styles.view11}>
                   <Text style={styles.txtsmall11}>06:15</Text>
                 </View>
-
-
-
-
 
                 <View style={styles.view12}>
                   <Text style={styles.txtsmall12}>07:00</Text>
@@ -228,10 +215,6 @@ const Screen9 = (props) => {
 };
 
 const styles = StyleSheet.create({
-  fixToText: {
-    justifyContent: 'center',
-    alignSelf: 'stretch'
-  },
   direct: {
     alignSelf: 'flex-start',
     height: 30,
@@ -262,7 +245,7 @@ const styles = StyleSheet.create({
     margin: 20,
     width: 190,
     left: 150,
-    top: 10,
+    top: 20,
     marginTop: 40,
     marginBottom: 60,
   },
@@ -281,19 +264,20 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 12,
     top: 100,
-    elevation: 8,
+    //elevation: 2,
     left: 40,
     height: 120,
     width: 430,
     right: 170,
     padding: 50,
-    marginTop: 410
+    marginTop: 410,
+    //marginTop: 220,
   },
   bg1: {
     backgroundColor: '#000000'
   },
   bg2: {
-    backgroundColor: '#ffffff'
+    backgroundColor: '#ffffff',
   },
   txt1: {
     color: 'white',
@@ -392,7 +376,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: '#4DB369',
     fontWeight: '800',
-    bottom: 60,
+    bottom: 50,
     position: 'absolute',
   },
   txtbottom2: {
@@ -401,7 +385,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: 'normal',
     right: 270,
-    bottom: 65,
+    bottom: 55,
     position: 'absolute'
   },
   txtbottom3: {
@@ -411,7 +395,7 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     position: 'absolute',
     right: 278,
-    bottom: 40
+    bottom: 30
   },
   sep1: {
     position: 'absolute',

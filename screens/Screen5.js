@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
   imgarrow1: {
     position: 'absolute',
     margin: 10,
-    marginStart: 315,
+    marginStart: 320,
     height: 30,
     width: 30,
     bottom: 15
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
   imgarrow2: {
     position: 'absolute',
     margin: 10,
-    marginStart: 315,
+    marginStart: 320,
     height: 30,
     width: 30,
     bottom: 415
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
   imgarrow3: {
     position: 'absolute',
     margin: 10,
-    marginStart: 315,
+    marginStart: 320,
     height: 30,
     width: 30,
     bottom: 335
@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
   imgarrow4: {
     position: 'absolute',
     margin: 10,
-    marginStart: 315,
+    marginStart: 320,
     height: 30,
     width: 30,
     bottom: 255
@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
   imgarrow5: {
     position: 'absolute',
     margin: 10,
-    marginStart: 315,
+    marginStart: 320,
     height: 30,
     width: 30,
     bottom: 175
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
   imgarrow6: {
     position: 'absolute',
     margin: 10,
-    marginStart: 315,
+    marginStart: 320,
     height: 30,
     width: 30,
     bottom: 95
@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
   imgarrow7: {
     position: 'absolute',
     margin: 10,
-    marginStart: 315,
+    marginStart: 320,
     height: 30,
     width: 30,
     bottom: 15

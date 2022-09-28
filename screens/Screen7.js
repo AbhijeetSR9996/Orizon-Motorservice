@@ -203,8 +203,8 @@ const styles = StyleSheet.create({
     width: 400,
     right: 170,
     padding: 50,
-    marginTop: 540,
-    //marginTop: 560,
+    //marginTop: 540,
+    marginTop: 560,
   },
   container: {
     flex: 0,

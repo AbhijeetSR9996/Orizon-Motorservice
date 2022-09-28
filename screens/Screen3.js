@@ -16,7 +16,7 @@ const Screen3 = ({ navigation }) => {
 
   return (
     <SafeAreaView >
-      <ScrollView >
+      <ScrollView showsVerticalScrollIndicator={false}>
         <SafeAreaView >
           <View>
             <View style={styles.bg}>
