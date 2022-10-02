@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import Login from '../components/modals/Login';
 import Signup from '../components/modals/Signup';
 
-const bgImage = require('../components/images/orizonbig.png');
+const bgImage = require('../components/images/logoout.png');
 const Anim4 = () => {
   const navigation = useNavigation();
   const [showModal, setShowModal] = useState(false);
@@ -46,6 +46,7 @@ const Anim4 = () => {
 
           <TouchableOpacity style={styles.appButtonContainer1}
             onPressIn={() => setShowModal(!showModal)} onPress={handleAnimation}
+
           >
             <Text style={styles.appButtonText1}>Log In</Text>
           </TouchableOpacity>
@@ -54,10 +55,10 @@ const Anim4 = () => {
           >
             <Text style={styles.appButtonText2}>Sign Up</Text>
           </TouchableOpacity>
-          {/* <View style={styles.view2}> */}
+
           <Text style={styles.txt5}>All motorcycle services on your</Text>
           <Text style={styles.txt6}>fingertips.</Text>
-          {/* </View> */}
+
           <Animated.Image source={bgImage} resizeMode={'center'}
             style={{
               position: 'absolute', left: 170, top: 300, height: 20, width: 16, borderRadius: 10,
@@ -242,7 +243,7 @@ const styles = StyleSheet.create({
   },
   txt5: {
     alignSelf: 'center',
-    color: 'white',
+    color: 'transparent',
     //bottom: 140,
     bottom: 140,
     right: 160,
@@ -250,7 +251,7 @@ const styles = StyleSheet.create({
   },
   txt6: {
     alignSelf: 'center',
-    color: 'white',
+    color: 'transparent',
     //bottom: 140,
     bottom: 123,
     //right: 160,

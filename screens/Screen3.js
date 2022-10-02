@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { View, Image, StyleSheet, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import Cleartext from '../components/others/Cleartext';
-import Hide from '../components/others/Hide';
 import Hide2 from '../components/others/Hide2';
-import Hide3 from '../components/others/Hide3';
 import Hide4 from '../components/others/Hide4';
 
 const Screen3 = ({ navigation }) => {
@@ -20,7 +18,7 @@ const Screen3 = ({ navigation }) => {
         <SafeAreaView >
           <View>
             <View style={styles.bg}>
-              <Image style={styles.direct} source={require('../components/images/orizonsmall.png')} />
+              <Image style={styles.direct} source={require('../components/images/logoout.png')} />
               <Separator />
             </View>
             <SafeAreaView style={styles.bg}>
@@ -33,22 +31,16 @@ const Screen3 = ({ navigation }) => {
                 <Text style={styles.txt2} >Name</Text>
                 <View style={styles.innerview}>
                   <Cleartext /></View>
-                <Text style={styles.txt2}>Vehicle Registration Number</Text>
-                <View style={styles.innerview}>
-                  <TextInput placeholder='enter vehicle regn number' placeholderTextColor={'#808080'} style={styles.txtin} /></View>
                 <Text style={styles.txt2}>Mobile Number</Text>
                 <View style={styles.innerview}>
                   <Hide4 /></View>
                 <Text style={styles.txt2}>Confirm Mobile Number</Text>
                 <View style={styles.innerview}>
                   <Hide2 /></View>
-                <Text style={styles.txt4}>Chassis Number (Optional)</Text>
-                <View style={styles.innerview}>
-                  <Hide3 /></View>
                 <View style={styles.fixToText}>
                   <Separator />
                   <TouchableOpacity style={styles.appButtonContainer} onPress={() => navigation.navigate('Screen4')} >
-                    <Text style={styles.appButtonText}>Sign Up</Text>
+                    <Text style={styles.appButtonText}>Continue</Text>
                   </TouchableOpacity>
                   <Text style={styles.txt3} onPress={() => navigation.navigate('Screen2')}>
                     Already have an account? Log In instead</Text>
