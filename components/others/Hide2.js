@@ -3,7 +3,7 @@ import { TextInput, View, StyleSheet, TouchableOpacity, Image } from 'react-nati
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-const Hide = () => {
+const Hide2 = () => {
   const [hidePass, setHidePass] = useState(true);
 
   return (
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Hide;
+export default Hide2;

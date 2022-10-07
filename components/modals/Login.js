@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import {
   View, TouchableOpacity, Text,
-  StyleSheet, SafeAreaView, Image
+  StyleSheet, SafeAreaView,
 } from 'react-native';
 import Hide from '../others/Hide';
-import Screen6 from '../../screens/Screen6';
 import { useNavigation } from '@react-navigation/native';
 import {
   LoginButton,
@@ -12,6 +11,7 @@ import {
   GraphRequest,
   GraphRequestManager,
 } from 'react-native-fbsdk';
+import GoogleButton from '../../screens/GoogleButton';
 
 
 const Login = () => {
@@ -20,17 +20,16 @@ const Login = () => {
     <View style={styles.separator} />
   );
   const [showModal, setShowModal] = useState(true);
-
   const [userName, setUserName] = useState('');
   const [token, setToken] = useState('');
   const [profilePic, setProfilePic] = useState('');
 
   const getResponseInfo = (error, result) => {
     if (error) {
-      //Alert for the Error
+
       alert('Error fetching data: ' + error.toString());
     } else {
-      //response alert
+
       console.log(JSON.stringify(result));
       setUserName('Welcome ' + result.name);
       setToken('User Token: ' + result.id);
@@ -39,7 +38,7 @@ const Login = () => {
   };
 
   const onLogout = () => {
-    //Clear the state after logout
+
     setUserName(null);
     setToken(null);
     setProfilePic(null);
@@ -64,13 +63,12 @@ const Login = () => {
                 <TouchableOpacity style={styles.appButtonContainer3} onPress={() => navigation.navigate('Screen4')} >
                   <Text style={styles.appButtonText3}>Continue</Text>
                 </TouchableOpacity>
-                <Text style={styles.txt3}>Forgot password?</Text>
+                <Text style={styles.txt3} onPress={() => { setShowModal(!showModal); }}>Forgot password?</Text>
                 <Separator />
                 <Text style={styles.txt4} onPress={() => navigation.navigate('Screen3')}>Sign Up</Text>
                 <Separator />
                 <Text style={[styles.txt4, { color: '#808080' }]}>Or sign-in with</Text>
                 {/* <Separator /> */}
-
                 <View style={{ alignSelf: "center", marginTop: '5%' }}>
                   <LoginButton style={{ width: 31, height: 30, bottom: '-3%', elevation: 3, }}
                     readPermissions={['public_profile']}
@@ -96,11 +94,13 @@ const Login = () => {
                     }}
                     onLogoutFinished={onLogout}
                   />
-                  <Text style={{ bottom: 35, left: 41, color: '#000' }}>|</Text>
-                  <Text style={{ bottom: 42.5, left: 41, color: '#000' }}>|</Text>
-                  <Text style={{ bottom: 50, left: 41, color: '#000' }}>|</Text>
-                  <Screen6 />
+                  <Text style={{ bottom: 35, left: 41, color: '#000000' }}>|</Text>
+                  <Text style={{ bottom: 42.5, left: 41, color: '#000000' }}>|</Text>
+                  <Text style={{ bottom: 50, left: 41, color: '#000000' }}>|</Text>
+                  <GoogleButton />
                 </View>
+                <Separator />
+                <Separator />
                 <Separator />
                 <Separator />
                 <Separator />

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, SafeAreaView, ScrollView, Image } from 'react-native';
 import Hide from '../components/others/Hide';
-import Screen6 from './Screen6';
 import {
   LoginButton,
   AccessToken,
   GraphRequest,
   GraphRequestManager,
 } from 'react-native-fbsdk';
+import GoogleButton from './GoogleButton';
 
 const Screen2 = ({ navigation }) => {
 
@@ -45,7 +45,7 @@ const Screen2 = ({ navigation }) => {
       <SafeAreaView>
         <View>
           <View style={styles.bg} >
-            <Image style={styles.direct} source={require('../components/images/logoout.png')} />
+            <Image style={styles.direct} source={require('../components/images/orizonsmall.png')} />
             <Separator />
           </View>
           <SafeAreaView style={styles.bg}>
@@ -69,7 +69,6 @@ const Screen2 = ({ navigation }) => {
                 <Separator />
                 <Text style={[styles.txt4, { color: '#808080' }]}>Or sign-in with</Text>
                 <Separator />
-
                 <View style={{ alignSelf: "center", marginTop: '1%' }}>
                   <LoginButton style={{ width: 31, height: 30, bottom: '-3%', elevation: 3, }}
                     readPermissions={['public_profile']}
@@ -98,8 +97,11 @@ const Screen2 = ({ navigation }) => {
                   <Text style={{ bottom: 35, left: 41, color: '#000' }}>|</Text>
                   <Text style={{ bottom: 42.5, left: 41, color: '#000' }}>|</Text>
                   <Text style={{ bottom: 50, left: 41, color: '#000' }}>|</Text>
-                  <Screen6 />
+                  <GoogleButton />
                 </View>
+                <Separator />
+                <Separator />
+                <Separator />
                 <Separator />
                 <Separator />
                 <Separator />

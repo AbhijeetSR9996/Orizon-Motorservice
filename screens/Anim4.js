@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import Login from '../components/modals/Login';
 import Signup from '../components/modals/Signup';
 
-const bgImage = require('../components/images/logoout.png');
+const bgImage = require('../components/images/orizonbig.png');
 const Anim4 = () => {
   const navigation = useNavigation();
   const [showModal, setShowModal] = useState(false);
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
   },
   txt5: {
     alignSelf: 'center',
-    color: 'transparent',
+    color: '#ffffff',
     //bottom: 140,
     bottom: 140,
     right: 160,
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
   },
   txt6: {
     alignSelf: 'center',
-    color: 'transparent',
+    color: '#ffffff',
     //bottom: 140,
     bottom: 123,
     //right: 160,

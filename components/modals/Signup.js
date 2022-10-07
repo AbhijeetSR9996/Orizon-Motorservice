@@ -3,7 +3,6 @@ import {
   View, TouchableOpacity, Text, TextInput,
   StyleSheet, SafeAreaView, ScrollView
 } from 'react-native';
-import Hide from '../others/Hide';
 import Cleartext from '../others/Cleartext';
 import Hide2 from '../others/Hide2';
 import Hide3 from '../others/Hide3';
@@ -16,6 +15,7 @@ const Signup = () => {
     <View style={styles.separator} />
   );
   const [showModal, setShowModal] = useState(true);
+  const [text, setText] = useState("");
   return (
     <SafeAreaView >
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -29,15 +29,24 @@ const Signup = () => {
                 <Separator />
                 <Separator />
                 <Separator />
-                <Text style={styles.txt2} maxLength={50}>Name</Text>
+
                 <View style={styles.innerview}>
-                  <Cleartext /></View>
-                <Text style={styles.txt2}>Mobile Number</Text>
+
+                  <TextInput placeholder='enter name' placeholderTextColor={'#808080'} maxLength={30}
+                    value={text} onChangeText={(value) => setText(value)} style={{ color: '#000', marginHorizontal: 12, }} />
+                </View>
+
+                <View style={styles.innerview}>
+                  <TextInput placeholder='enter vehicle regn number' placeholderTextColor={'#808080'} style={styles.txtin} /></View>
+
                 <View style={styles.innerview}>
                   <Hide4 /></View>
-                <Text style={styles.txt2}>Confirm Mobile Number</Text>
+
                 <View style={styles.innerview}>
                   <Hide2 /></View>
+
+                <View style={styles.innerview}>
+                  <Hide3 /></View>
                 <View style={styles.fixToText}>
                   <Separator />
                   <TouchableOpacity style={styles.appButtonContainer} onPress={() => navigation.navigate('Screen4')} >
@@ -133,7 +142,8 @@ const styles = StyleSheet.create({
   txt3: {
     alignSelf: 'center',
     color: '#007aff',
-    top: -50
+    //top: -50,
+    top: -30
   },
   txt4: {
     alignSelf: 'flex-start',

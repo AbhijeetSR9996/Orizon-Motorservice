@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, StyleSheet, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import Cleartext from '../components/others/Cleartext';
 import Hide2 from '../components/others/Hide2';
+import Hide3 from '../components/others/Hide3';
 import Hide4 from '../components/others/Hide4';
 
 const Screen3 = ({ navigation }) => {
@@ -11,6 +12,7 @@ const Screen3 = ({ navigation }) => {
   );
 
   const [hidePass, setHidePass] = useState(true);
+  const [text, setText] = useState("");
 
   return (
     <SafeAreaView >
@@ -18,7 +20,7 @@ const Screen3 = ({ navigation }) => {
         <SafeAreaView >
           <View>
             <View style={styles.bg}>
-              <Image style={styles.direct} source={require('../components/images/logoout.png')} />
+              <Image style={styles.direct} source={require('../components/images/orizonsmall.png')} />
               <Separator />
             </View>
             <SafeAreaView style={styles.bg}>
@@ -28,15 +30,20 @@ const Screen3 = ({ navigation }) => {
                 <Separator />
                 <Separator />
                 <Separator />
-                <Text style={styles.txt2} >Name</Text>
+
                 <View style={styles.innerview}>
-                  <Cleartext /></View>
-                <Text style={styles.txt2}>Mobile Number</Text>
+
+                  <TextInput placeholder='enter name' placeholderTextColor={'#808080'} maxLength={30}
+                    value={text} onChangeText={(value) => setText(value)} style={{ color: '#000', marginHorizontal: 12, }} />
+                </View>
+
                 <View style={styles.innerview}>
                   <Hide4 /></View>
-                <Text style={styles.txt2}>Confirm Mobile Number</Text>
+
                 <View style={styles.innerview}>
                   <Hide2 /></View>
+                <View style={styles.innerview}>
+                  <Hide3 /></View>
                 <View style={styles.fixToText}>
                   <Separator />
                   <TouchableOpacity style={styles.appButtonContainer} onPress={() => navigation.navigate('Screen4')} >
@@ -132,7 +139,7 @@ const styles = StyleSheet.create({
   txt3: {
     alignSelf: 'center',
     color: '#007aff',
-    top: -50
+    top: -30
   },
   txt4: {
     alignSelf: 'flex-start',
